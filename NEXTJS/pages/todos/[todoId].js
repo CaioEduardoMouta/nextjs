@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
 
     const {params} = context
 
@@ -38,12 +38,13 @@ export default function todo({ todo }) {
 
     return (
         <>
-        <Link href="/"><a>Voltar</a></Link>
-        <h1>Exibindo o Todo: {todoId}</h1>
-        <p>Comentário: lorem <Link href={`/toods/${todoId}/comments/1`}><a>Detalhes</a></Link></p>
-        <p>Comentário: lorem <Link href={`/toods/${todoId}/comments/2`}><a>Detalhes</a></Link></p>
-        <p>Comentário: lorem <Link href={`/toods/${todoId}/comments/3`}><a>Detalhes</a></Link></p>
-        <p>Comentário: lorem <Link href={`/toods/${todoId}/comments/4`}><a>Detalhes</a></Link></p>
+        <Link href="/todos"><a>Voltar</a></Link>
+        <h1>Exibindo o Todo: {todo.id}</h1>
+        <h3>Texto: {todo.title}</h3>
+        <p>Comentário: lorem <Link href={`/toods/${todo.id}/comments/1`}><a>Detalhes</a></Link></p>
+        <p>Comentário: lorem <Link href={`/toods/${todo.id}/comments/2`}><a>Detalhes</a></Link></p>
+        <p>Comentário: lorem <Link href={`/toods/${todo.id}/comments/3`}><a>Detalhes</a></Link></p>
+        <p>Comentário: lorem <Link href={`/toods/${todo.id}/comments/4`}><a>Detalhes</a></Link></p>
 
         </>
     )
